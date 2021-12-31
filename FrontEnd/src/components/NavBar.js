@@ -18,7 +18,8 @@ function NavBar() {
           <Link to="/about"> About Us </Link>
           <Link to="/menu"> Shop </Link>
           <Link to="/contact"> Contact </Link>
-          <Link to="/sigup"> Sign up </Link>
+          <Link to="/signup"> Sign up </Link>
+          <Link to="/signin"> Login </Link>
         </div>
       </div>
       <div className="rightSide">
@@ -26,7 +27,8 @@ function NavBar() {
         <Link to="/menu"> Menu </Link>
         <Link to="/about"> About Us </Link>
         <Link to="/contact"> Contact </Link>
-        <Link to="/sigup"> Sign up </Link>
+        <Link to="/signup"> Sign up </Link>
+        <Link to="/signin"> Login </Link>
         <button onClick={toggleNavBar}>
           <ReorderIcon />
         </button>
