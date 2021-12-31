@@ -18,7 +18,7 @@ function Home() {
       <div className="menu">
         <h1 className="menuTitle">Feature Product</h1>
         <div className="menuList">
-          {MenuList.map((menuItem, key) => {
+          {MenuList.slice(6, 12).map((menuItem, key) => {
             return (
               <MenuItem
                 key={key}
