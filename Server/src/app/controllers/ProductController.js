@@ -2,6 +2,8 @@ import Product from "../models/Product.js";
 import Comment from "../models/Comment.js";
 import User from "../models/User.js";
 import Feedback from "../models/Feedback.js";
+
+
 export const createProduct = async (req, res) => {
   try {
     const { name, description, price, stock, img, status } =
