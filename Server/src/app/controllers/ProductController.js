@@ -1,6 +1,6 @@
 import Product from "../models/Product.js";
 import Comment from "../models/Comment.js";
-import Customer from "../models/Customer.js";
+import User from "../models/User.js";
 import Feedback from "../models/Feedback.js";
 export const createProduct = async (req, res) => {
   try {
