@@ -6,7 +6,7 @@ import Twitter from '@mui/icons-material/Twitter'
 import '../styles/Footer.css'
 function Footer() {
     return (
-        <div class="footer">
+        <div className="footer">
             <div className="socialMedia">
                 <InstagramIcon />
                 <TwitterIcon />
