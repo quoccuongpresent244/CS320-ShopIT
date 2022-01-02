@@ -1,20 +1,27 @@
-const path = require('path')
-const express = require('express')
-const morgan = require('morgan')
-const handlebars = require('express-handlebars')
-const route = require('./routes')
-const methodOverride = require('method-override')
-const app = express()
-const port = 3000
+import express from "express";
+import mongoose from "mongoose";
+import path from "path";
+import userRouter from "./routes/userRouter.js";
+import dotenv from "dotenv";
+import productRouter from "./routes/productRouter.js";
+import commentRouter from "./routes/commentRouter.js";
+import feedbackRouter from "./routes/feedbackRouter.js";
+import mainpage from "./routes/mainPage.js"
 
-const db = require('./config/db')
+const port = 3000;
+
+
+const app = express();
+dotenv.config();
+
+const __dirname = path.resolve();
+
+import db from "./config/db/index.js"
 
 app.use(express.static(path.join(__dirname, './public')))
 
-app.use(methodOverride('_method'))
-
 //connect db
-db.connect();
+db();
 
 //urlencoded
 app.use(express.urlencoded({
@@ -22,20 +29,13 @@ app.use(express.urlencoded({
 }))
 app.use(express.json())
 
-//HTTP logger
-//app.use(morgan('combined'))
+// routers
+app.use("/", mainpage);
+app.use("/api/users", userRouter);
+app.use("/api/products", productRouter);
+app.use("/api/comments", commentRouter);
+app.use("/api/feedbacks", feedbackRouter);
 
-//Template engine
-app.engine('hbs', handlebars({
-    extname: ".hbs",
-    helpers: {
-        sum: (a,b) => a+b,
-    }
-}))
-app.set('view engine', 'hbs') 
-app.set('views', path.join(__dirname, 'resource', 'views'))
 
-//Route init
-route(app);
 
 app.listen(port, () => console.log(`App listening at http://localhost:${port}`))

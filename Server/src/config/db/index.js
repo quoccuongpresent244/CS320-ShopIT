@@ -1,13 +1,13 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
-async function connect(){
+const connectDB = async () => {
     try {
-        await mongoose.connect('mongodb://localhost:27017/jam_education_dev')
-        console.log("connect successfully!") 
+        await mongoose.connect(process.env.DB_URI);
+        console.log("MongoDB connected");
+    } catch (error) {
+        console.log(error.message);
+        process.exit(1);
     }
-    catch (error) {
-        console.log("connect failed!")
-    }
-}
+};
 
-module.exports = {connect}
+export default connectDB;
