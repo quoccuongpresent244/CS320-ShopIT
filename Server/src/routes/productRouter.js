@@ -6,13 +6,13 @@ import {
   getProduct,
   updateProduct,
   deleteProduct,
-  //getAllProducts,
+  getAllProducts,
   //getProductsWithFilter,
 } from "../app/controllers/ProductController.js";
 const productRouter = express.Router();
 
 // productRouter.put('/update',updateAll)
-//productRouter.get("/products", isAuth, getAllProducts);
+productRouter.get("/products", isAuth, getAllProducts);
 productRouter.post("/", isAuth, isAdmin, createProduct);
 productRouter.get("/:id", isAuth, getProduct);
 productRouter.put("/:id", isAuth, isAdmin, updateProduct);

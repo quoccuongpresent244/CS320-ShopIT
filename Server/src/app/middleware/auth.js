@@ -12,7 +12,6 @@ export const generateToken=user=>{
       process.env.ACCESS_TOKEN,{
             expiresIn:'30d',
       },
-      
     );
 }
 
@@ -28,7 +27,6 @@ export const isAuth=(req,res,next)=>{
             req.user = decode;
             next();
         }
-           
     })
 }
 
