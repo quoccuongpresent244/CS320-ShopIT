@@ -2,7 +2,9 @@ import express from "express";
 
 import {getAllProducts,} from "../app/controllers/ProductController.js";
 
-const main = express.Router();
+const mainPage = express.Router();
 
-main.get("/", getAllProducts);
+mainPage.get("/", getAllProducts);
+
+export default mainPage
 

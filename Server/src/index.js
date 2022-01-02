@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import productRouter from "./routes/productRouter.js";
 import commentRouter from "./routes/commentRouter.js";
 import feedbackRouter from "./routes/feedbackRouter.js";
-import mainPage from "./routes/mainPage.js"
+import mainpage from "./routes/mainPage.js"
 
 const port = 3000;
 
@@ -30,7 +30,7 @@ app.use(express.urlencoded({
 app.use(express.json())
 
 // routers
-app.use("/", mainPage);
+app.use("/", mainpage);
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/comments", commentRouter);

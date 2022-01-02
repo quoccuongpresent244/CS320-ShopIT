@@ -115,7 +115,7 @@ export const getProduct = async (req, res) => {
       const products = await Product.find({});
       return res
         .status(200)
-        .json({ success: true, message: "find all product", products });
+        .send(products);
     } catch (error) {
       console.log(error);
       res.status(500).send({ success: false, message: "Internal server error" });
