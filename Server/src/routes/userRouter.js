@@ -1,7 +1,7 @@
 import express from 'express';
-import {isAuth,isAdmin} from '../middleware/auth.js'
+import {isAuth,isAdmin} from '../app/middleware/auth.js'
 const userRouter=express.Router();
-import {getUsers,registerUser,loginUser,getUser,updateUser,deleteUser,searchUser} from '../controllers/UserController.js'
+import {getUsers,registerUser,loginUser,getUser,updateUser,deleteUser,searchUser} from '../app/controllers/UserController.js'
 
 userRouter.get('/users',isAuth,getUsers);
 userRouter.post("/register",registerUser);

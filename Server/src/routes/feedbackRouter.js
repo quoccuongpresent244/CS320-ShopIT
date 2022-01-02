@@ -1,7 +1,7 @@
 import express from 'express';
-import Feedback from '../models/Feedback.js';
-import { isAuth} from '../middleware/auth.js';
-import { getFeedback,createFeedback,updateFeedback,deleteFeedback } from '../controllers/FeedbackController.js';
+import Feedback from '../app/models/Feedback.js';
+import { isAuth} from '../app/middleware/auth.js'
+import { getFeedback,createFeedback,updateFeedback,deleteFeedback } from '../app/controllers/FeedbackController.js';
 const feedbackRouter=express.Router();
 
 

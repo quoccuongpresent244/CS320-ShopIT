@@ -7,19 +7,20 @@ import productRouter from "./routes/productRouter.js";
 import commentRouter from "./routes/commentRouter.js";
 import feedbackRouter from "./routes/feedbackRouter.js";
 
+const port = 3000;
+
 
 const app = express();
 dotenv.config();
-const port = process.env.APP_PORT
 
 const __dirname = path.resolve();
 
-const db = require('./config/db')
+import db from "./config/db/index.js"
 
 app.use(express.static(path.join(__dirname, './public')))
 
 //connect db
-db.connectDB();
+db();
 
 //urlencoded
 app.use(express.urlencoded({

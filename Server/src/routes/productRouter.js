@@ -1,6 +1,6 @@
 import express from "express";
 
-import { isAuth, isAdmin } from "../middleware/auth.js";
+import { isAuth, isAdmin } from '../app/middleware/auth.js'
 import {
   createProduct,
   getProduct,
@@ -8,7 +8,7 @@ import {
   deleteProduct,
   //getAllProducts,
   //getProductsWithFilter,
-} from "../controllers/ProductController.js";
+} from "../app/controllers/ProductController.js";
 const productRouter = express.Router();
 
 // productRouter.put('/update',updateAll)
