@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BannerImage from "../assets/bg.jpeg";
 import { MenuList } from "../helpers/MenuList";
 import MenuItem from "../components/MenuItem";
 import "../styles/Menu.css";
 import "../styles/Home.css";
+import axios from "axios";
+
 function Home() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/posts')
+    .then(response => {
+      console.log(response.data);
+      setProducts(response.data);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }, [])
+
   return (
     <div className="home">
       <div className="headerContainer">
@@ -18,7 +33,7 @@ function Home() {
       <div className="menu">
         <h1 className="menuTitle">Feature Product</h1>
         <div className="menuList">
-          {MenuList.map((menuItem, key) => {
+          {MenuList.slice(6, 12).map((menuItem, key) => {
             return (
               <MenuItem
                 key={key}
