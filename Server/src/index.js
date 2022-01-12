@@ -7,12 +7,16 @@ import productRouter from "./routes/productRouter.js";
 import commentRouter from "./routes/commentRouter.js";
 import feedbackRouter from "./routes/feedbackRouter.js";
 import mainpage from "./routes/mainPage.js"
+import cors from "cors"
 
 const port = 3000;
 
 
 const app = express();
 dotenv.config();
+
+app.use(cors());
+app.options('*',cors());
 
 const __dirname = path.resolve();
 

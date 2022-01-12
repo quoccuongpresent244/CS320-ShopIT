@@ -11,7 +11,7 @@ function Home() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/posts')
+    axios.get('http://localhost:3000/')
     .then(response => {
       console.log(response.data);
       setProducts(response.data);
