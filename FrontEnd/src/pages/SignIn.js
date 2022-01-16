@@ -1,14 +1,47 @@
 import React, { useState } from "react";
 import "../styles/Form.css";
-import FormSignIn from "../components/FormSignIn";
-import FormSuccess from "../components/FormSuccess";
+import { AuthContext } from "../App";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 function SignIn() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [username, setUserName] = useState('');
+  const [password, setPassWord] = useState('');
+
+  const auth = useContext(AuthContext);
+  //console.log(auth);
 
   function submitForm() {
     setIsSubmitted(true);
+    auth();
+    // fetch("localhost:3000/api/users/login", {
+    //   method: "POST",
+    //   // header: {
+    //   //   "Accept": "application/json",
+    //   //   "Content-Type": "application/json",
+    //   // },
+    //   body: JSON.stringify({
+    //     username: username,
+    //     password: password,        
+    //   }),
+    // })
+    // axios.post("localhost:3000/api/users/login", {}, {
+    //   auth: {
+    //     username: username,
+    //     password: password,
+    //   }
+    // })
+    //   .then((data) => {
+    //     console.log(data)
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   })
+
   }
+
   return (
     <>
       <div className="form-container">
@@ -24,7 +57,11 @@ function SignIn() {
                   name="username"
                   placeholder="Enter your username"
                   //   value={values.username}
-                  //   onChange={handleChange}
+                  onChange={e => {
+                    setUserName(e.target.value)
+                    //console.log(e.target.value)
+                    }
+                  }
                 />
               </div>
               <div className="form-inputs">
@@ -35,10 +72,15 @@ function SignIn() {
                   name="email"
                   placeholder="Enter your email"
                   //   value={values.email}
-                  //   onChange={handleChange}
-                />
+                  onChange={e => {
+                    setPassWord(e.target.value)
+                    //console.log(e.target.value);
+                    }
+                  }                />
               </div>
-              <button onClick={submitForm}>Login</button>
+              <Link to='/'>
+                <button onClick={submitForm}>Login</button>
+              </Link>
             </form>
           </div>
         ) : (

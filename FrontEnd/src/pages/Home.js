@@ -14,6 +14,7 @@ function Home() {
     axios.get('http://localhost:3000/')
     .then(response => {
       console.log(response.data);
+      console.log(response.data[0].img);
       setProducts(response.data);
     })
     .catch(err => {
@@ -33,13 +34,14 @@ function Home() {
       <div className="menu">
         <h1 className="menuTitle">Feature Product</h1>
         <div className="menuList">
-          {MenuList.slice(6, 12).map((menuItem, key) => {
+          {products.slice(6, 12).map((menuItem, key) => {
             return (
               <MenuItem
-                key={key}
-                image={menuItem.image}
+                key={key+6}
+                image={menuItem.img}
                 name={menuItem.name}
                 price={menuItem.price}
+                pass={key}
               />
             );
           })}

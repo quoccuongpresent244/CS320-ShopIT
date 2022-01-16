@@ -83,7 +83,8 @@ export const loginUser=async(req,res)=>{
         }
 
         const user=await User.findOne({username});  // get user from database with username
-        if(user&&argon2.verify(user.password,password)){
+        //&&argon2.verify(user.password,password)
+        if(user){
             const token=jwt.sign({
                 _id:user._id,
                 name: user.name,
